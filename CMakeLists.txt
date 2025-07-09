@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
-project(TaskManagerConsole)
+project(TaskManager)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# Lien statique sans UCRT
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -static-libgcc -static-libstdc++")
+
 include_directories(include)
 
-set(SOURCES_APP
-    src/CommandHandler.cpp
-    src/Task.cpp
-    src/FileManager.cpp
-    src/TaskManager.cpp
-    src/main.cpp
-)
+file(GLOB SOURCES "src/*.cpp")
+file(GLOB HEADERS "include/*.hpp")
 
-add_executable(TaskManagerConsole ${SOURCES_APP})
+add_executable(TaskManagerConsole ${SOURCES} ${HEADERS})
