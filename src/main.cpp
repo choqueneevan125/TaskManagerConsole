@@ -1,7 +1,13 @@
 #include <iostream>
 #include "CommandHandler.hpp"
+#include "VersionInfo.hpp"
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc > 1 && std::string(argv[1]) == "--version") {
+        VersionInfo::printVersion();
+        return 0;
+    }
+
     TaskManager taskManager;
     FileManager fileManager("tasks.txt");
     CommandHandler commandHandler(taskManager, fileManager);
