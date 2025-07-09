@@ -41,6 +41,13 @@ void CommandHandler::handleCommand(const std::string& input) {
         fileManager.loadTasks(taskManager);
     } else if (command == "help") {
         printHelp();
+    } else if (command == "undone") {
+        int id;
+        if (iss >> id) {
+            taskManager.markTaskUndone(id);
+        } else {
+            std::cout << "Usage : undone <id>\n";
+        }
     } else {
         std::cout << "Commande inconnue. Tapez 'help' pour l’aide.\n";
     }
@@ -52,6 +59,7 @@ void CommandHandler::printHelp() const {
         "  add <desc>     : Ajouter une tâche\n"
         "  list           : Lister les tâches\n"
         "  done <id>      : Marquer une tâche comme terminée\n"
+        "  undone <id>    : Marquer une tâche comme non terminée\n"
         "  remove <id>    : Supprimer une tâche\n"
         "  save           : Sauvegarder les tâches dans le fichier\n"
         "  load           : Charger les tâches depuis le fichier\n"

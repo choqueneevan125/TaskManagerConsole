@@ -32,6 +32,18 @@ bool TaskManager::markTaskDone(int id) {
     return false;
 }
 
+bool TaskManager::markTaskUndone(int id) {
+    for (auto& task : tasks) {
+        if (task.getId() == id) {
+            task.markUndone();
+            std::cout << "Tâche marquée comme non terminée.\n";
+            return true;
+        }
+    }
+    std::cout << "ID invalide.\n";
+    return false;
+}
+
 void TaskManager::listTasks() const {
     if (tasks.empty()) {
         std::cout << "Aucune tâche.\n";

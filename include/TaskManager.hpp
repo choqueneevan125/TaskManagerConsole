@@ -9,6 +9,7 @@ public:
     void addTask(const std::string& description);
     bool removeTask(int id);
     bool markTaskDone(int id);
+    bool markTaskUndone(int id);
     void listTasks() const;
 
     const std::vector<Task>& getTasks() const;

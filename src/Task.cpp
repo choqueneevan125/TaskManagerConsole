@@ -20,6 +20,10 @@ void Task::markDone() {
     done = true;
 }
 
+void Task::markUndone() {
+    done = false;
+}
+
 std::string Task::toString() const {
     std::ostringstream out;
     out << "[" << id << "] " << description << (done ? " (✓ terminé)" : " (non terminé)");

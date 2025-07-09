@@ -10,6 +10,7 @@ public:
     bool isDone() const;
 
     void markDone();
+    void markUndone();
     std::string toString() const;
 
 private:
